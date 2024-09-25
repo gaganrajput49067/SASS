@@ -65,10 +65,10 @@ const Table = () => {
   return (
     <div className="custom-table card">
       <DataTable value={products} showGridlines className="styled-datatable">
-        <Column field="candidateName" header="candidateName"></Column>
-        <Column field="jobName" header="jobName"></Column>
-        <Column field="rating" header="rating"></Column>
-        <Column field="appliedDate" header="appliedDate"></Column>
+        <Column field="candidateName" header="CandidateName"></Column>
+        <Column field="jobName" header="JobName"></Column>
+        <Column field="rating" header="Rating"></Column>
+        <Column field="appliedDate" header="AppliedDate"></Column>
       </DataTable>
     </div>
   );
