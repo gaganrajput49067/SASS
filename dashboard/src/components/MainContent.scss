@@ -1,0 +1,41 @@
+.split-main-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Ensure the parent container fills the available height */
+  }
+  
+  .lower {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    height: 100%; /* Make sure the children inside take the full height */
+  }
+  
+  .table-chart,
+  .chart {
+    flex: 1; /* Both components will take up equal width */
+    margin: 10px; /* Adds spacing */
+    display: flex;
+    flex-direction: column; /* Allows inner components to stretch */
+  }
+  
+  .table-chart,
+  .chart {
+    height: 100%; /* Ensure both the table and chart take full height */
+  }
+  
+  /* Mobile View: Stack components vertically */
+  @media (max-width: 768px) {
+    .lower {
+      flex-direction: column;
+    }
+  
+    .table-chart,
+    .chart {
+      width: 100%;
+      height: auto; /* Allow automatic height on smaller screens */
+      margin: 0;
+    }
+  }
+  
