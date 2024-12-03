@@ -1,75 +1,117 @@
 import { Column } from "primereact/column";
 import { DataTable } from "primereact/datatable";
 import React, { useEffect, useState } from "react";
-import "./Table.scss"; // Import your custom styles
+import "./Table.scss"; // Enhanced custom styles
 
 const Table = () => {
-  const [products, setProducts] = useState([]);
+  const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    // Hardcoded data
     const data = [
       {
-        candidateName: "John Doe",
-        jobName: "Frontend Developer",
-        rating: 4.5,
-        appliedDate: "2023-09-01",
+        customerName: "John Doe",
+        orderNumber: "ORD001",
+        amount: 250.75,
+        status: "Completed",
       },
       {
-        candidateName: "Jane Smith",
-        jobName: "Backend Developer",
-        rating: 4.7,
-        appliedDate: "2023-09-05",
-      },
-      
-      {
-        candidateName: "Alice Williams",
-        jobName: "Data Scientist",
-        rating: 4.9,
-        appliedDate: "2023-09-15",
+        customerName: "Jane Smith",
+        orderNumber: "ORD002",
+        amount: 120.5,
+        status: "Pending",
       },
       {
-        candidateName: "David Brown",
-        jobName: "DevOps Engineer",
-        rating: 4.3,
-        appliedDate: "2023-09-20",
+        customerName: "Alice Williams",
+        orderNumber: "ORD003",
+        amount: 340.2,
+        status: "Cancelled",
       },
       {
-        candidateName: "Emily Davis",
-        jobName: "UI/UX Designer",
-        rating: 4.8,
-        appliedDate: "2023-09-25",
+        customerName: "David Brown",
+        orderNumber: "ORD004",
+        amount: 500.0,
+        status: "Completed",
       },
       {
-        candidateName: "Chris Wilson",
-        jobName: "Mobile Developer",
-        rating: 4.4,
-        appliedDate: "2023-09-27",
+        customerName: "Emily Davis",
+        orderNumber: "ORD005",
+        amount: 80.99,
+        status: "Pending",
       },
       {
-        candidateName: "Chris Wilson",
-        jobName: "Mobile Developer",
-        rating: 4.4,
-        appliedDate: "2023-09-27",
+        customerName: "Emily Davis",
+        orderNumber: "ORD06",
+        amount: 80.9,
+        status: "Pending",
       },
       {
-        candidateName: "Chris Wilson",
-        jobName: "Mobile Developer",
-        rating: 4.4,
-        appliedDate: "2023-09-27",
+        customerName: "Alisa Davis",
+        orderNumber: "ORD007",
+        amount: 80.99,
+        status: "Pending",
       },
     ];
-    setProducts(data);
+    setOrders(data);
   }, []);
 
+  const feedbacks = [
+    {
+      customer: "John Doe",
+      rating: 5,
+      comment: "Excellent service and timely delivery! The product quality exceeded my expectations, and the packaging was secure. I will definitely order again.",
+    },
+    {
+      customer: "Jane Smith",
+      rating: 4,
+      comment: "Good experience overall, but the order took a bit longer than expected. Customer support was responsive and kept me updated throughout the process.",
+    },
+    {
+      customer: "David Brown",
+      rating: 3,
+      comment: "The service was average. While the product was as described, there was a delay in delivery, and the customer support team was difficult to reach.",
+    },
+  ];
+
   return (
-    <div className="custom-table card">
-      <DataTable value={products} showGridlines className="styled-datatable">
-        <Column field="candidateName" header="CandidateName"></Column>
-        <Column field="jobName" header="JobName"></Column>
-        <Column field="rating" header="Rating"></Column>
-        <Column field="appliedDate" header="AppliedDate"></Column>
-      </DataTable>
+    <div className="table-feedback-container">
+      <div className="table-section card">
+        <h2>Orders Overview</h2>
+        <DataTable
+          value={orders}
+          showGridlines
+          className="styled-datatable"
+          responsiveLayout="scroll"
+        >
+          <Column field="customerName" header="Customer Name"></Column>
+          <Column field="orderNumber" header="Order Number"></Column>
+          <Column
+            field="amount"
+            header="Amount"
+            body={(rowData) => `$${rowData.amount.toFixed(2)}`}
+          ></Column>
+          <Column
+            field="status"
+            header="Status"
+            body={(rowData) => (
+              <span className={`status-tag ${rowData.status.toLowerCase()}`}>
+                {rowData.status}
+              </span>
+            )}
+          ></Column>
+        </DataTable>
+      </div>
+      <div className="feedback-section card">
+        <h2>Customer Feedback</h2>
+        {feedbacks.map((feedback, index) => (
+          <div key={index} className="feedback-card">
+            <h3>{feedback.customer}</h3>
+            <p>
+              <strong>Rating:</strong> {feedback.rating} / 5
+            </p>
+            <p>{feedback.comment}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

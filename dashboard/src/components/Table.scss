@@ -1,46 +1,87 @@
-.custom-table {
-    padding: 1rem;
-    background-color: #f9f9f9;
+.table-feedback-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  margin-top: 10px;
+
+  .card {
+    background-color: #ffffff;
     border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    margin-top: 15px;
-    // margin: 10px;
-  
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    width: 48%; // Half width
+
+    @media (max-width: 768px) {
+      width: 100%; // Full width on small screens
+    }
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+
+  .table-section {
     .styled-datatable {
-      min-width: 50rem; /* Same as the inline style */
+      border-collapse: separate;
+      border-spacing: 0 0.5rem; // Adds spacing between rows
       width: 100%;
-      background-color: white;
-      border-radius: 5px;
-  
-      table {
-        border-collapse: collapse;
-        width: 100%;
-      }
-  
-      th, td {
-        padding: 8px;
-        text-align: left;
-        border-bottom: 1px solid #ddd;
-      }
-  
       th {
-        background-color: #f0f0f0;
-        font-weight: bold;
+        background-color: #1e88e5;
+        color: #fff;
+        font-weight: 600;
+        text-align: left;
+        padding: 1rem;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
       }
-  
-      tr:nth-child(even) {
-        background-color: #f9f9f9;
+
+      td {
+        background-color: #f3f4f6;
+        color: #333;
+        padding: 1rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s, transform 0.2s;
+
+        &:hover {
+          background-color: #e3f2fd;
+          transform: scale(1.02);
+        }
       }
-  
-      tr:hover {
-        background-color: #f1f1f1;
-      }
-  
-      /* Optional: add some responsiveness */
-      @media (max-width: 768px) {
-        min-width: auto;
-        width: 100%;
+
+      tr {
+        &:hover td {
+          background-color: #bbdefb;
+        }
       }
     }
   }
-  
+
+  .feedback-section {
+    .feedback-card {
+      background-color: #f9f9f9;
+      border-radius: 4px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+
+      &:hover {
+        transform: scale(1.02);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      }
+
+      h3 {
+        margin: 0 0 0.5rem;
+        color: #333;
+      }
+
+      p {
+        margin: 0.2rem 0;
+        color: #555;
+        font-size: 0.875rem;
+      }
+    }
+  }
+}

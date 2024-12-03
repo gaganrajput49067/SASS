@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBriefcase, faUsers } from "@fortawesome/free-solid-svg-icons";
+import { faBriefcase, faUsers, faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import PieChart from "./PieChart";
 import gsap from "gsap";
 import study from "../components/study.jpeg";
@@ -72,7 +72,7 @@ const WelcomeContent = () => {
   return (
     <div className="upper piece">
       <div className="upper-first piece">
-        <h2 className="piece">Welcome back Lewis</h2>
+        <h2 className="piece">Welcome back Gagan</h2>
         <h4 className="piece">
           <span>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi
@@ -90,21 +90,21 @@ const WelcomeContent = () => {
               <div className="job-count">
                 <FontAwesomeIcon icon={faBriefcase} className="icon" />
                 <span className="label">
-                  Total Jobs: <span className="count">15</span>
+                  Total Orders: <span className="count">30</span>
                 </span>
               </div>
               <div className="applicant-count">
                 <FontAwesomeIcon icon={faUsers} className="icon" />
                 <span className="label">
-                  Applicants: <span className="count">1500</span>
+                  Total Delivered: <span className="count">12</span>
                 </span>
               </div>
             </div>
             <div className="dual-dlip-child piece">
               <div className="job-count piece">
-                <FontAwesomeIcon icon={faBriefcase} className="icon piece" />
+                <FontAwesomeIcon icon={faCircleXmark} className="icon piece" />
                 <span className="label">
-                  Total Jobs: <span className="count">15</span>
+                  Total Cancelled: <span className="count">15</span>
                 </span>
               </div>
             </div>
@@ -115,7 +115,7 @@ const WelcomeContent = () => {
           <div className="main-upper-inner piece">
             <div className="info-section piece">
               <img src={study} alt="Description" className="info-image" />
-              <h3 className="info-title piece">Private Job Board</h3>
+              <h3 className="info-title piece">More Order Details</h3>
               <p className="info-text piece">
                 Here is some descriptive text about the image or topic. You can
                 include any relevant information you want to share.

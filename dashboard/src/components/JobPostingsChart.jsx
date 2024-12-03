@@ -3,23 +3,24 @@ import { Chart } from 'primereact/chart';
 import './JobPostingsChart.scss';
 
 const JobPostingsChart = () => {
+ 
   const data = {
-    labels: ["Your Job Postings"],
+    labels: ["Order Summary"],
     datasets: [
       {
-        label: "Private Equity Associate 1",
+        label: "Processed Orders",
         backgroundColor: "#7E57C2",
-        data: [100],
+        data: [120],
       },
       {
-        label: "Private Equity Associate 2",
+        label: "Pending Orders",
         backgroundColor: "#42A5F5",
-        data: [150],
+        data: [90],
       },
       {
-        label: "Private Equity Associate 3",
+        label: "Cancelled Orders",
         backgroundColor: "#26C6DA",
-        data: [250],
+        data: [30],
       },
     ],
   };
@@ -29,7 +30,7 @@ const JobPostingsChart = () => {
     scales: {
       x: {
         beginAtZero: true,
-        max: 300,
+        max: 150,
       },
     },
     responsive: true,
@@ -41,10 +42,11 @@ const JobPostingsChart = () => {
   };
 
   return (
-    <div className="card">
+    <div className="card order-summary-chart">
       <Chart type="bar" data={data} options={options} />
     </div>
   );
 };
+
 
 export default JobPostingsChart;

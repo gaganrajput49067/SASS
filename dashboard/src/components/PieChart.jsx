@@ -3,7 +3,7 @@ import { Chart } from 'primereact/chart';
 
 const PieChart = () => {
   const data = {
-    labels: ['Total Applicants', 'Not Reviewed'],
+    labels: ['Total Revenue', 'Profit'],
     datasets: [
       {
         data: [70, 30],
